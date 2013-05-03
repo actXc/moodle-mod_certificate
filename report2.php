@@ -20,7 +20,8 @@
  *
  * @package    mod
  * @subpackage certificate
- * @copyright  Mark Nelson <markn@moodle.com>
+ * @copyright  Mark Nelson <markn@moodle.com>, other contribution: Guido Hornig hornig@actxc.de
+ * 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -197,7 +198,7 @@ if ($download == "xls") {
 }
 
 if ($download == "txt") {
-  $users = certificate_get_noissues($certificate->id, $DB->sql_fullname(), $groupmode, $cm, $page, $perpage);
+    $users = certificate_get_noissues($certificate->id, $DB->sql_fullname(), $groupmode, $cm, $page, $perpage);
     $filename = clean_filename("$course->shortname " . rtrim($certificate->name, '.') . '.txt');
 
     header("Content-Type: application/download\n");
@@ -211,7 +212,8 @@ if ($download == "txt") {
     echo get_string("group"). "\t";
     echo $stremail. "\t";
 //    echo $strgrade. "\t";
-//    echo $strcode. "\n";
+//    echo $strcode. 
+	  echo "\n";
 
     // Generate the data for the body of the spreadsheet
     $i=0;
@@ -233,7 +235,8 @@ if ($download == "txt") {
         echo $ug2 . "\t";
         echo $user->email . "\t";
 //        echo certificate_get_grade($certificate, $course, $user->id) . "\t";
-//        echo $user->code . "\n";
+//        echo $user->code 
+		  echo "\n";
         $row++;
     }
     exit;
